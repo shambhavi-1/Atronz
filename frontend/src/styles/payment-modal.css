@@ -1,0 +1,306 @@
+/* Amazon-style Payment Modal */
+.amazon-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.amazon-modal-content {
+  background: white;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.amazon-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #ddd;
+}
+
+.amazon-modal-header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 400;
+  color: #333;
+}
+
+.amazon-close-btn {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #666;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.amazon-close-btn:hover {
+  background: #f5f5f5;
+}
+
+.amazon-payment-summary {
+  padding: 0 24px;
+  margin-bottom: 20px;
+}
+
+.amazon-order-summary {
+  background: #f8f8f8;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.amazon-order-summary h3 {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+}
+
+.amazon-summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+.amazon-summary-row.amazon-total-row {
+  border-top: 1px solid #ddd;
+  padding-top: 12px;
+  margin-top: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #B12704;
+}
+
+.amazon-payment-methods {
+  padding: 0 24px;
+  margin-bottom: 24px;
+}
+
+.amazon-payment-methods h3 {
+  margin: 0 0 16px 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+}
+
+.amazon-payment-option {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.amazon-payment-option:hover {
+  border-color: #007185;
+}
+
+.amazon-payment-option input[type="radio"] {
+  margin: 0 12px 0 0;
+  margin-top: 2px;
+}
+
+.amazon-payment-label {
+  flex: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.amazon-payment-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.amazon-payment-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 2px;
+}
+
+.amazon-payment-subtitle {
+  font-size: 14px;
+  color: #666;
+}
+
+.amazon-card-details,
+.amazon-upi-details,
+.amazon-netbanking-details {
+  margin-top: 16px;
+  padding: 16px;
+  background: #f8f8f8;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.amazon-form-group {
+  margin-bottom: 16px;
+}
+
+.amazon-form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.amazon-form-group input,
+.amazon-form-group select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  background: white;
+}
+
+.amazon-form-group input:focus,
+.amazon-form-group select:focus {
+  outline: none;
+  border-color: #007185;
+  box-shadow: 0 0 0 2px rgba(0, 113, 133, 0.1);
+}
+
+.amazon-form-row {
+  display: flex;
+  gap: 12px;
+}
+
+.amazon-form-row .amazon-form-group {
+  flex: 1;
+}
+
+.amazon-modal-actions {
+  display: flex;
+  gap: 12px;
+  padding: 20px 24px;
+  border-top: 1px solid #ddd;
+  background: #f8f8f8;
+}
+
+.amazon-btn-secondary {
+  flex: 1;
+  padding: 12px 24px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.2s;
+}
+
+.amazon-btn-secondary:hover {
+  background: #f5f5f5;
+}
+
+.amazon-btn-primary {
+  flex: 1;
+  padding: 12px 24px;
+  background: #ffd814;
+  border: 1px solid #fcd200;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.2s;
+}
+
+.amazon-btn-primary:hover {
+  background: #f7ca00;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .amazon-modal-overlay {
+    padding: 10px;
+  }
+
+  .amazon-modal-content {
+    max-height: 95vh;
+  }
+
+  .amazon-modal-header {
+    padding: 16px 20px;
+  }
+
+  .amazon-modal-header h2 {
+    font-size: 20px;
+  }
+
+  .amazon-payment-summary,
+  .amazon-payment-methods,
+  .amazon-modal-actions {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .amazon-form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .amazon-modal-actions {
+    flex-direction: column;
+  }
+
+  .amazon-btn-secondary,
+  .amazon-btn-primary {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .amazon-modal-header {
+    padding: 12px 16px;
+  }
+
+  .amazon-modal-header h2 {
+    font-size: 18px;
+  }
+
+  .amazon-payment-summary,
+  .amazon-payment-methods,
+  .amazon-modal-actions {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .amazon-payment-option {
+    padding: 10px;
+  }
+
+  .amazon-card-details,
+  .amazon-upi-details,
+  .amazon-netbanking-details {
+    padding: 12px;
+  }
+}
