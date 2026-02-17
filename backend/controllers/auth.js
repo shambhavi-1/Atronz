@@ -96,6 +96,15 @@ exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
+    if (!email || !password) {
+      return res.status(400).json({ message: 'Email and password are required' });
+    }
+
+    const trimmedEmail = email.trim().toLowerCase();
+    
+    // Find user by email
+    const user = await User.findOne({ email: { $regex: new RegExp(`^${trimmedEmail}$`, 'i') } });
+    
     if (!user) {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
